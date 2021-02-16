@@ -25,7 +25,7 @@ public class UserService {
     @Autowired
     UserRoleService userRoleService;
 
-    public HttpStatus signUp(com.job.dto.UserSignUpDto userDto){
+    public HttpStatus confirmSignUp(UserSignUpDto userDto){
         User existingUser = findByEmail(userDto.getEmail());
         if(blackListService.findByEmail(userDto.getEmail())!=null)return HttpStatus.FORBIDDEN;
         if (existingUser!=null)return HttpStatus.BAD_REQUEST;

@@ -55,25 +55,6 @@ public class OfferService {
     public Offer findById(Long offerId){
         return offerRepository.findById(offerId).orElseThrow(NullPointerException::new);
     }
-//
-//    public HttpStatus updateOffer(long offerId,SaveOfferDto updateDto){
-//        try{
-//            findById(offerId);
-//        }catch (NullPointerException ex){
-//            return HttpStatus.NOT_FOUND;
-//        }
-//        Offer updatedOffer = findById(offerId);
-//        updatedOffer.setId(offerId);
-//
-//        if(updateDto.getCompanyName()!=null)updatedOffer.setCompanyName(updateDto.getCompanyName());
-//        if(updateDto.getCategory()!=null)updatedOffer.setCategory(updateDto.getCategory());
-//        if(updateDto.getPositions()!=null)updatedOffer.setPosition(updateDto.getPositions());
-//        if(updateDto.getCategory()!=null)updatedOffer.setCategory(updateDto.getCategory());
-//
-//        offerRepository.save(updatedOffer);
-//        return HttpStatus.OK;
-//    }
-
 
     public List<Offer> searchOffer(SearchOfferDto filter){
         List<Offer> offers = offerRepository.findAll(new Specification<Offer>() {
@@ -134,8 +115,9 @@ public class OfferService {
             List<Offer> reports = offer.getUser().getReportedOffers();
             reports.add(offer);
             offer.getUser().setReportedOffers(reports);
-            if (reports.size()==3)redListService.save(new RedList(offer.getUser(), LocalDateTime.now()));
+            if (reports.size()==3){redListService.save(new RedList(offer.getUser(), LocalDateTime.now()));
             offerRepository.save(offer);
+            userService.banUser(offer.getUser().getId());}
         }
     }
     public List<Offer> getOfferByUserId(long userId){

@@ -13,9 +13,9 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @PostMapping("/sign-up")
-    public HttpStatus signUp(@RequestBody UserSignUpDto user){
-        return userService.signUp(user);
+    @PostMapping("admin/confirm-sign-up")
+    public HttpStatus confirmSignUp(@RequestBody UserSignUpDto user){
+        return userService.confirmSignUp(user);
     }
 
     @GetMapping("/{id}")
@@ -36,4 +36,6 @@ public class UserController {
     public User findByEmail(@PathVariable String email){
         return userService.findByEmail(email);
     }
+
+
 }
