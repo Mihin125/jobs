@@ -1,5 +1,6 @@
 package com.job.service;
 
+import com.job.dto.DistrictDto;
 import com.job.model.District;
 import com.job.repository.DistrictRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class DistrictService {
         return districtRepository.findDistinctByDistrictName(districtName);
     }
 
-    public void saveDistrict(com.demo.dto.DistrictDto districtDto){
+    public void saveDistrict(DistrictDto districtDto){
         District district = new District();
         district.setDistrictName(districtDto.getDistrictName());
 //        List<City> cities = districtDto.getCities().stream().map(x->cityService.findCityById(x)).collect(Collectors.toList());

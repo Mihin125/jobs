@@ -1,5 +1,6 @@
 package com.job.controller;
 
+import com.job.dto.RoleDto;
 import com.job.service.OfferService;
 import com.job.service.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class AdminController {
         offerService.rejectOffer(offerId);
     }
     @PostMapping("/roles")
-    public void saveRole(@RequestBody com.demo.dto.RoleDto roleDto){userRoleService.save(roleDto);
+    public void saveRole(@RequestBody RoleDto roleDto){userRoleService.save(roleDto);
     }
 
 }

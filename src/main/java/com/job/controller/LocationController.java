@@ -1,6 +1,7 @@
 package com.job.controller;
 
 
+import com.job.dto.DistrictDto;
 import com.job.model.District;
 import com.job.service.DistrictService;
 import com.job.service.LocationService;
@@ -19,7 +20,7 @@ public class LocationController {
         return locationService.findDistrictById(districtId);
     }
     @PostMapping("/admin/district/save")
-    public void saveDistrict(@RequestBody com.demo.dto.DistrictDto districtDto){
+    public void saveDistrict(@RequestBody DistrictDto districtDto){
         districtService.saveDistrict(districtDto);
 
     }

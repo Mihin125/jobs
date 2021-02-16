@@ -1,6 +1,7 @@
 package com.job.service;
 
 import com.job.Authentication.UserRole;
+import com.job.dto.RoleDto;
 import com.job.repository.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ public class UserRoleService {
         return userRoleRepository.findUserRoleByName(name);
     }
 
-    public void save(com.demo.dto.RoleDto roleDto){
+    public void save(RoleDto roleDto){
         UserRole userRole = new UserRole();
         userRole.setName(roleDto.getRole());
         userRoleRepository.save(userRole);

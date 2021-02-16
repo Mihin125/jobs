@@ -1,5 +1,6 @@
 package com.job.service;
 
+import com.job.dto.ReportOfferDto;
 import com.job.model.ReportOffer;
 import com.job.repository.ReportOfferRespositorty;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class ReportOfferService {
     @Autowired
     OfferService offerService;
 
-    public void saveReport(com.demo.dto.ReportOfferDto reportOfferDto){
+    public void saveReport(ReportOfferDto reportOfferDto){
         ReportOffer reportOffer = new ReportOffer();
         reportOffer.setDescription(reportOfferDto.getDescription());
         reportOffer.setReportingUser(userService.findById(reportOfferDto.getReportingUserId()));

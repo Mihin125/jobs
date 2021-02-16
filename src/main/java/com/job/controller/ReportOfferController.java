@@ -1,5 +1,6 @@
 package com.job.controller;
 
+import com.job.dto.ReportOfferDto;
 import com.job.model.ReportOffer;
 import com.job.service.ReportOfferService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class ReportOfferController {
         return reportOfferService.getReportsByOfferId(offerId);
     }
     @PostMapping
-    public void saveReportOffer(@RequestBody com.demo.dto.ReportOfferDto reportOfferDto){
+    public void saveReportOffer(@RequestBody ReportOfferDto reportOfferDto){
         reportOfferService.saveReport(reportOfferDto);
     }
     @PutMapping("/admin/markViewed/{reportOfferId}")

@@ -1,4 +1,4 @@
-package com.demo.dto;
+package com.job.dto;
 
 import lombok.Getter;
 import lombok.Setter;
